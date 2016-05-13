@@ -1,12 +1,14 @@
 var path = require('path');
 var webpack = require('webpack');
 
-console.log(__dirname);
-
 module.exports = {
+  context: __dirname,
   entry: './main.js',
-  output: { path: __dirname, filename: 'bundle.js' },
-  debug: true,
+  output: {
+		path: path.join(__dirname, "assets"),
+		publicPath: "assets/",
+		filename: "main.js",
+	},
   module: {
     loaders: [
       {
@@ -19,5 +21,5 @@ module.exports = {
       }
     ]
   },
-  devtool : 'source-map',
+
 };
